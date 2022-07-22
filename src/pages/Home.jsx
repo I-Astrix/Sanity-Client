@@ -11,20 +11,18 @@ import Ad from '../components/cards/Ad';
 const Home = () => {
   return (
     <div className=''>
+        
+        <Top/>
+      <div className="grid grid-cols-6  lg:border gap-5 grid-flow-col my-5">
 
-        <Logo/>
-       <Header/>
-      <Top/>
-
-      <div className="grid grid-cols-6 gap-5 grid-flow-col my-5">
-
-        <div className="col-start-1 col-end-5 ">
+        <div className=" col-start-1 col-end-7  lg:col-start-1 lg:col-end-5 ">
+          
               <Posts title={'Latest'}/>
               <Ad/>
               <Posts/>
         </div>
 
-        <div className="col-start-5 col-end-7 h-max">
+        <div className="col-start-5 col-end-7 h-max hidden lg:block">
             <Sidebar/>
         </div>
 
