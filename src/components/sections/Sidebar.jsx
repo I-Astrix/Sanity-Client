@@ -4,7 +4,7 @@ import Vertical from '../cards/Vertical'
 
 const Sidebar = () => {
   return (
-    <div className=' p-5'>
+    <div className='p-5 bg-white'>
       <Vertical/>
       <Minimal/>
     </div>

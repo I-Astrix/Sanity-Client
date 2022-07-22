@@ -2,7 +2,7 @@ import React from 'react'
 
 const Horizontal = () => {
   return (
-    <div className='grid grid-cols-5 gap-5 grid-flow-col h-max my-10'>
+    <div className='grid grid-cols-5 gap-5 grid-flow-col h-max mb-5'>
             
             <div className="image col-start-1 col-end-3 relative">
                 <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='h-full w-full object-cover rounded-xl'/>
