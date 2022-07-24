@@ -49,7 +49,7 @@ const Top = () => {
 
     </div>
 
-    <div class="col-span-3 row-start-3 border  row-end-5 hidden lg:block relative">
+    <div class="col-span-3 row-start-3 border row-end-5 hidden lg:block relative">
     <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='w-full h-full object-cover'/>
     <div className="data absolute left-0 bottom-0 w-full px-4 py-2 text-white bg-title">
        <div className="content flex flex-col gap-1 py-2">

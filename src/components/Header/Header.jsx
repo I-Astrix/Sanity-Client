@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className="py-5 bg-gradient-to-r from-gray-700 to-gray-500 px-4 flex justify-between items-center">
+    <div className="py-5 bg-gradient-to-r from-gray-700 to-gray-500 px-4 flex justify-between items-center z-10">
       <ul className='gap-5 font-normal text-sm text-white hidden lg:flex'>
 
         <li>HOME</li>

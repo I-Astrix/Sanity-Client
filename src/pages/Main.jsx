@@ -9,6 +9,7 @@ import {
   } from "react-router-dom";
 import Logo from '../components/Header/Logo';
 import Header from '../components/Header/Header';
+import Single from './Single';
 
 
 const Main = () => {
@@ -21,6 +22,7 @@ const Main = () => {
         <Routes>
         
             <Route exact path="/" element={<Home/>}/>   
+            <Route exact path="/single" element={<Single/>}/>   
 
         </Routes>
 

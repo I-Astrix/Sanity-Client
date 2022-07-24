@@ -5,11 +5,11 @@ const Horizontal = () => {
     <div className='grid grid-cols-5 gap-5 grid-flow-col h-max mb-5'>
             
             <div className="image col-start-1 col-end-3 relative">
-                <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='h-full w-full object-cover'/>
-                <small className='absolute cursor-pointer left-5 bottom-5 px-4 py-1 backdrop-blur-sm text-white bg-white bg-opacity-30 rounded-full'>Tags</small>
+                <img loading='lazy' src="https://source.unsplash.com/ugnrXk1129g" alt="" className='h-full w-full object-cover'/>
+                <small className='absolute cursor-pointer left-5 bottom-5 px-3 py-1 text-xs backdrop-blur-sm text-white bg-white bg-opacity-30 rounded-full'>Tags</small>
             </div>
 
-            <div className="content col-start-3 col-end-6 flex flex-col gap-4">
+            <div className="content col-start-3 col-end-6 flex flex-col gap-2">
                     <div className="title">
                         <h3 className='text-md lg:text-lg font-bold'>Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
                     </div>
@@ -25,8 +25,11 @@ const Horizontal = () => {
                         </svg>
                             125 Comments</small>
                     </div>
-                    <div className="content hidden lg:block">
+                    <div className="content hidden md:block">
                         <p className='text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa possimus natus voluptatum?</p>
+                    </div>
+                    <div className="tags">
+                        <div className="tag py-0.5 px-2 inline-block bg-gray-200 text-xs text-gray-600">Javascript</div>
                     </div>
             </div>
 
