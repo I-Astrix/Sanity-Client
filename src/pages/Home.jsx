@@ -27,7 +27,7 @@ const Home = () => {
               <Posts/>
         </div>
 
-        <div className="col-start-5 col-end-7 h-max hidden lg:block  sticky top-0">
+        <div className="col-start-5 col-end-7 h-max hidden lg:block">
             <Sidebar/>
         </div>
 

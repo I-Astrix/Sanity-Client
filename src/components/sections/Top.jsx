@@ -5,7 +5,7 @@ const Top = () => {
   return (
     <div className="">
       
-    <div class="grid grid-rows-4 grid-flow-col gap-4 h-64 lg:h-96 lg:mt-2 ">
+    <div class="grid grid-rows-4 grid-flow-col gap-4 h-64 lg:h-96 lg:mt-2 mb-4">
 
     <div class="row-span-4 lg:col-span-4  border relative">
     <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='w-full h-full object-cover'/>

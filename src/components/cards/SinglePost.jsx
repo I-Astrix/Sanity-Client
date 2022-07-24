@@ -1,8 +1,9 @@
 import React from 'react'
+import Comment from './Comment';
 
 const SinglePost = () => {
   return (
-    <div className='flex flex-col h-max my-5 bg-white'>
+    <div className='flex flex-col h-max bg-white'>
             
             <div className="image relative h-80">
                 <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='h-full w-full object-cover'/>
@@ -35,7 +36,7 @@ const SinglePost = () => {
                             125 Comments</small>
                     </div>
                     <div className="content">
-                        <p className='text-lg leading-8 tracking-wide'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus itaque minima nihil? Itaque impedit deserunt unde repudiandae magni! Vero optio voluptatem libero neque voluptatibus cupiditate eos suscipit assumenda eius obcaecati aspernatur eveniet omnis odit alias totam consectetur voluptas quod minus officiis ad dolorum incidunt, excepturi iure! Incidunt maxime fuga cum illum neque nisi similique odio voluptas amet veniam. Maxime harum culpa assumenda excepturi? Consequatur quia ducimus obcaecati, quo eligendi rerum repellendus a eos? Doloribus, molestias cumque? Incidunt earum nemo quod consequatur praesentium accusamus, delectus, sed fugiat iure repudiandae voluptas amet beatae pariatur cupiditate eligendi aliquam facilis in sapiente! Voluptas, vel.</p>
+                        <p className='text-lg leading-8 tracking-wide'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque amet minima natus nihil voluptatem. Quos est enim libero ipsam ducimus!</p>
                     </div>
 
                     <div className="flex justify-between">
@@ -50,6 +51,14 @@ const SinglePost = () => {
                         <p className='mx-3'>Comments</p>
                         <div className="span h-full w-2 absolute left-0 bg-blue-500 top-0"></div>
                     </div>
+
+                    {/* Comments */}
+
+                    <Comment/>
+                    <Comment/>
+                    <Comment/>
+
+
                     </div>
 
             </div>

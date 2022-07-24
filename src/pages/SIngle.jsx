@@ -5,6 +5,7 @@ import Sidebar from '../components/sections/Sidebar';
 import Ad from '../components/cards/Ad';
 import { Link, useLocation } from 'react-router-dom';
 import SinglePost from '../components/cards/SinglePost';
+import Tags from '../components/sections/Tags';
 
 const Single = () => {
 
@@ -34,7 +35,7 @@ const Single = () => {
 </nav>
 
 
-    <div className="grid grid-cols-6  lg:border gap-5 grid-flow-col relative">
+    <div className="grid grid-cols-6 gap-5 grid-flow-col relative">
 
         <div className=" col-start-1 col-end-7  lg:col-start-1 lg:col-end-5">
           
@@ -43,8 +44,11 @@ const Single = () => {
               <Posts/>
         </div>
 
-        <div className="col-start-5 col-end-7 h-max hidden lg:block  sticky top-0">
+        <div className="col-start-5 col-end-7 h-max hidden lg:block relative">
             <Sidebar/>
+            
+              <Tags/>
+            
         </div>
 
 
