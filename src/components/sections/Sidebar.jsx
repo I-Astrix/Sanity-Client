@@ -1,4 +1,5 @@
 import React from 'react'
+import Ad from '../cards/Ad'
 import Minimal from '../cards/Minimal'
 import Vertical from '../cards/Vertical'
 import Strip from '../strips/Strip'
@@ -6,11 +7,13 @@ import Strip from '../strips/Strip'
 const Sidebar = () => {
   return (
     <div className='p-5 bg-white'>
-        <Strip/>
+        <Strip text={"Must Read"}/>
       <Vertical/>
+      <Strip text={"Suggested"}/>
       <Minimal/>
       <Minimal/>
       <Minimal/>
+
       
              
     </div>

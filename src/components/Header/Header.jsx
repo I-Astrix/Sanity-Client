@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className="py-5 sticky top-0 bg-gradient-to-r from-gray-700 to-gray-500 px-4 flex justify-between items-center z-10">
+    <div className="py-5 sticky top-0 blue-radial px-4 flex justify-between items-center z-10 border-b-2 border-yellow-400">
 
 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 lg:hidden" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />

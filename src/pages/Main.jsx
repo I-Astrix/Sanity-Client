@@ -10,6 +10,7 @@ import {
 import Logo from '../components/Header/Logo';
 import Header from '../components/Header/Header';
 import Single from './Single';
+import Footer from '../components/Footer/Footer';
 
 
 const Main = () => {
@@ -25,6 +26,8 @@ const Main = () => {
             <Route exact path="/single" element={<Single/>}/>   
 
         </Routes>
+
+        {/* <Footer/> */}
 
     </Router>
   )

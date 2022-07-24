@@ -1,4 +1,5 @@
 import React from 'react'
+import Strip from '../strips/Strip';
 import Comment from './Comment';
 
 const SinglePost = () => {
@@ -47,10 +48,7 @@ const SinglePost = () => {
                     </div>
 
                     <div className="comments">
-                    <div className="my-2 py-2 px-2 mb-5 bg-gradient-to-r from-gray-700 to-gray-500 text-white relative">
-                        <p className='mx-3'>Comments</p>
-                        <div className="span h-full w-2 absolute left-0 bg-blue-500 top-0"></div>
-                    </div>
+                    <Strip text={'Comments'}/>
 
                     {/* Comments */}
 
