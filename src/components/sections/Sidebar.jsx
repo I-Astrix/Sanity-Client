@@ -6,7 +6,7 @@ import Strip from '../strips/Strip'
 
 const Sidebar = () => {
   return (
-    <div className='p-5 bg-white'>
+    <div className='p-5 bg-white border-b-4 border-yellow-500'>
         <Strip text={"Must Read"}/>
       <Vertical/>
       <Strip text={"Suggested"}/>

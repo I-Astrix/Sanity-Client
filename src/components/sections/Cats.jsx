@@ -3,7 +3,7 @@ import Strip from '../strips/Strip'
 
 const Cats = () => {
   return (
-    <div className="p-5 bg-white my-4 ">
+    <div className="p-5 bg-white my-4 border-b-4 border-yellow-500">
         <Strip text={'Categories'}/>
         <div className="flex flex-wrap gap-2 my-4">
 

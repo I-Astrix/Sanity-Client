@@ -1,18 +1,21 @@
 export const dropIn = {
     initial: {
-        y: 100
+        y: 100,
+        opacity: 0
     },
     animate:{
         y: 0,
+        opacity: 1,
         transition: {
             type: "spring",
             stiffness: 80,
-            when: 'afterChildren',
-            staggerChildren: 0.4
+            when: 'beforeChildren',
+            staggerChildren: 0.5
         }
     }, 
     exit:{
-        y: 100
+        y: 100,
+        opacity: 0,
     }
 }
 

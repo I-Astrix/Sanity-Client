@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const Small = () => {
   return (
-    <div className='flex flex-col h-max my-5'>
+    <motion.div initial={{opacity: 0, x: 50}} animate={{opacity: 1, x: 0}} transition={{delay: 0.2}} exit={{opacity: 0, x: 50}} className='flex flex-col h-max mt-3 md:my-5'>
             
             <div className="image relative h-1/4">
                 <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='h-32 w-full object-cover'/>
@@ -13,7 +14,7 @@ const Small = () => {
                     <div className="title">
                         <h3 className='text-sm font-bold'>Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
                     </div>
-                    <div className="info text-gray-400 flex items-center gap-4">
+                    <div className="info text-gray-400 flex items-center lg:gap-4 gap-1 flex-wrap">
                         <small className='flex items-center gap-1'>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -27,7 +28,7 @@ const Small = () => {
                     </div>
             </div>
 
-    </div>
+    </motion.div>
   )
 }
 

@@ -5,10 +5,10 @@ const Top = () => {
   return (
     <div className="">
       
-    <div class="grid grid-rows-4 grid-flow-col gap-4 h-64 lg:h-96 lg:mt-2 mb-4">
+    <div className="grid grid-rows-4 grid-flow-col gap-4 h-64 lg:h-96 lg:mt-2 mb-4 ">
 
-    <div class="row-span-4 lg:col-span-4  border relative">
-    <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='w-full h-full object-cover'/>
+    <div className="row-span-4 lg:col-span-4  border relative overflow-hidden group">
+    <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease '/>
 
     <div className="data absolute left-0 bottom-0 w-full px-4 py-8 text-white bg-title to-gray-500">
     <div className="content flex flex-col gap-4">
@@ -35,8 +35,8 @@ const Top = () => {
 
     </div>
 
-    <div class="col-span-3 row-start-1 border row-end-3  hidden lg:block relative">
-    <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='w-full h-full object-cover'/>
+    <div className="col-span-3 row-start-1 border row-end-3  hidden lg:block relative group overflow-hidden">
+    <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease '/>
 
     <div className="data  absolute left-0 bottom-0 w-full px-4 py-2 text-white bg-title">
 
@@ -49,8 +49,8 @@ const Top = () => {
 
     </div>
 
-    <div class="col-span-3 row-start-3 border row-end-5 hidden lg:block relative">
-    <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='w-full h-full object-cover'/>
+    <div className="col-span-3 row-start-3 border row-end-5 hidden lg:block relative group overflow-hidden">
+    <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease '/>
     <div className="data absolute left-0 bottom-0 w-full px-4 py-2 text-white bg-title">
        <div className="content flex flex-col gap-1 py-2">
                     <div className="title">

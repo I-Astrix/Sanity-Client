@@ -6,6 +6,7 @@ import Ad from '../components/cards/Ad';
 import { Link, useLocation } from 'react-router-dom';
 import SinglePost from '../components/cards/SinglePost';
 import Tags from '../components/sections/Tags';
+import Cats from '../components/sections/Cats';
 
 const Single = () => {
 
@@ -41,18 +42,21 @@ const Single = () => {
           
               <SinglePost/>
               <Ad/>
-              <Posts/>
+              <Posts title="Related"/>
         </div>
 
         <div className="col-start-5 col-end-7 h-max hidden lg:block relative">
             <Sidebar/>
-            
+              <Cats/>
               <Tags/>
             
         </div>
 
 
       </div>
+
+      <div className="text-4xl text-center mt-10 font-bold p-4 border-b-2 border-yellow-500 border-dashed">That's It</div>
+
       </>
   )
 }

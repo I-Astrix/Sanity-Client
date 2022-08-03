@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Components
 import Top from '../components/sections/Top';
@@ -14,8 +14,18 @@ import { motion } from 'framer-motion';
 import Cats from '../components/sections/Cats';
 import Carousel from '../components/sections/Carousel';
 
+import sanityCli from '../Sanity/Sanity';
+import useApi from '../Hooks/useApi';
+import { getSinglePost , getAllPosts, getByLimit } from '../Sanity/Queries';
+import urlFor from '../Sanity/ImageBuilder';
 
 const Home = () => {
+
+  const { data } = useApi(getAllPosts);
+  console.log(data);
+  // console.log(urlFor(data[0].poster.asset._ref).width(200).url())
+
+
   return (
     <motion.div  className='' variants={dropIn} initial="initial" animate="animate" exit="exit" >
         
