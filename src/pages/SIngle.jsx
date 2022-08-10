@@ -1,64 +1,78 @@
-import React from 'react'
-import Top from '../components/sections/Top';
-import Posts from '../components/sections/Posts';
-import Sidebar from '../components/sections/Sidebar';
-import Ad from '../components/cards/Ad';
-import { Link, useLocation } from 'react-router-dom';
-import SinglePost from '../components/cards/SinglePost';
-import Tags from '../components/sections/Tags';
-import Cats from '../components/sections/Cats';
+// Packages
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useParams, useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
+// Components
+import Posts from "../components/sections/Posts";
+import Sidebar from "../components/sections/Sidebar";
+import Ad from "../components/cards/Ad";
+import SinglePost from "../components/cards/SinglePost";
+import Cats from "../components/sections/List";
+import Spinner from "../components/Spinner/Spinner";
+// Redux
+import { clearSingle } from "../app/features/posts/postSlice";
+// Api
+import { getSingle } from "../Api/requests/Posts";
+import { getSingleById } from "../Sanity/Queries";
+import { containerVariant } from "../components/framer-motion/variants";
+
+// import { arrowLeft } from "../assets/icons/svg";
 
 const Single = () => {
+  const location = useLocation();
+  const navigate = useNavigate()
+  const { postId } = useParams();
+  const dispatch = useDispatch();
+  const { single, isFetching } = useSelector((state) => state.posts);
 
-    const location = useLocation();
-    console.log(location);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    getSingle(getSingleById(), dispatch, postId);
+    // return () => {
+    //   dispatch(clearSingle());
+    // };
+  }, [postId]);
 
+  // console.log(arrowLeft)
 
   return (
-
-    <>
-    
-<nav className="flex py-4" aria-label="Breadcrumb">
-  <ol className="inline-flex items-center space-x-1 md:space-x-3">
-    <li className="inline-flex items-center">
-      <Link to="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 ">
-        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-        Home
-      </Link>
-    </li>
-    <li>
-      <div className="flex items-center">
-        <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
-        <a href="#" className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 ">Projects</a>
+    <motion.div variants={containerVariant}
+    initial="initial"
+    animate="animate"
+    exit="exit">
+      
+      {/* Back */}
+      <div className="py-2 px-2 flex gap-2 text-gray-400 text-xs items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+      </svg>
+      <button onClick={()=> navigate(-1)}>Go Back</button>
       </div>
-    </li>
-  </ol>
-</nav>
 
-
-    <div className="grid grid-cols-6 gap-5 grid-flow-col relative">
-
+      <div
+        className="grid grid-cols-6 gap-5 grid-flow-col relative"
+      >
         <div className=" col-start-1 col-end-7  lg:col-start-1 lg:col-end-5">
-          
-              <SinglePost/>
-              <Ad/>
-              <Posts title="Related"/>
+          {isFetching && <Spinner />}
+          {/* <SinglePost postData={single}/> */}
+          {!isFetching && <SinglePost postData={single} />}
+          <Ad />
+          <Posts title="Related" />
         </div>
 
         <div className="col-start-5 col-end-7 h-max hidden lg:block relative">
-            <Sidebar/>
-              <Cats/>
-              <Tags/>
-            
+          <Sidebar />
+          <Cats title={"categories"}/>
         </div>
-
-
       </div>
 
-      <div className="text-4xl text-center mt-10 font-bold p-4 border-b-2 border-yellow-500 border-dashed">That's It</div>
+      <div className="text-4xl text-center mt-10 font-bold p-4 border-b-2 border-yellow-500 border-dashed">
+        That's It 
+       
+      </div>
+    </motion.div>
+  );
+};
 
-      </>
-  )
-}
-
-export default Single
+export default Single;

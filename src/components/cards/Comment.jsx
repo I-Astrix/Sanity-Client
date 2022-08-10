@@ -7,24 +7,22 @@ const Comment = () => {
 
         <div className="flex gap-4 justify-between items-center">
 
-        <div className="flex gap-4 items-center">
-            <div className="w-16 h-16 rounded-full overflow-hidden">
-                <img className='h-full w-full  max-w-full object-cover' src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit" alt="" />
+        <div className="flex gap-2 items-start">
+            <div className="w-20 h-20 clip_circle overflow-hidden rounded-full ">
+                <img className='w-full h-full object-cover object-top' src="https://res.cloudinary.com/dse8haobk/image/upload/v1660102399/pexels-tu%E1%BA%A5n-ki%E1%BB%87t-jr-1382734_egjomh.jpg" alt="" />
             </div>            
 
-                <div className="leading-3 flex flex-col gap-2">
-                <p>Name</p>
+                <div className="leading-3 flex flex-col">
+                <small className='text-gray-600 text-lg'>Name</small>
                 <small className='text-gray-400'>December 4, 2017 at 3:12 pm</small>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, voluptatem.</p>
+                
                 </div>
             </div>
-        
-        <div className="bg-blue-400 text-white py-2 px-4">
-            <button>Reply</button>
+            
         </div>
-
-        </div>
-        <div className="px-20 text-gray-500">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, voluptatem.</p>
+        {/* <div className="px-20 text-gray-500 text-sm"> */}
+        {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, voluptatem.</p> */}
 
         {/* Nested Comments */} 
         
@@ -44,7 +42,7 @@ const Comment = () => {
                 </div>
                 </div> */}
 
-        </div>
+        {/* </div> */}
 
     </div>
   )

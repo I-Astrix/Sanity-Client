@@ -47,7 +47,7 @@ const Footer = () => {
     </div>
 
 <div className="mt-10">
-            <h1 className='text-slate-400 text-xs'>Copyright ©2022 All rights reserved | Design By  <a href="" className='text-white'>Colorlib</a></h1>
+            <h1 className='text-slate-400 text-xs'>Copyright ©2022 All rights reserved | Design By  <a href="https://www.google.com" className='text-white'>Colorlib</a></h1>
             
             </div>
             

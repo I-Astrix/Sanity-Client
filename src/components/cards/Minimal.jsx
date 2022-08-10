@@ -1,17 +1,20 @@
 import React from 'react'
+import placeholder from '../../assets/images/placeholder.png';
+import { urlFor } from '../../Sanity/Sanity';
+import { Link } from 'react-router-dom';
 
-const Minimal = () => {
+const Minimal = ({postData}) => {
   return (
-    <div className='grid grid-cols-5 gap-3 grid-flow-col h-32 my-10'>
+    <Link to={`/single/${postData?._id}`} className='grid grid-cols-5 gap-3 grid-flow-col h-32 my-5'>
             
     <div className="image col-start-1 col-end-3 relative">
-        <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='h-full w-full object-cover rounded-xl'/>
-        <small className='absolute text-xs cursor-pointer left-2 bottom-2 px-3 py-1 backdrop-blur-sm text-white bg-white bg-opacity-30 rounded-full'>Tags</small>
+        <img src={urlFor(postData.mainImage).width(200).url()} alt="image" className='h-full w-full object-cover rounded-xl'/>
+        <small className='absolute cursor-pointer left-2 bottom-2 px-3 py-1 text-xs backdrop-blur-sm text-white bg-black bg-opacity-30 rounded-full'>Tags</small>
     </div>
 
     <div className="content col-start-3 col-end-6 flex flex-col gap-4">
             <div className="title">
-                <h3 className='text-sm font-bold'>Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
+                <h3 className='text-sm font-bold'>{postData?.title}</h3>
             </div>
             <div className="info text-gray-400 flex flex-col items-left gap-2 flex-wrap ">
                 <small className='flex items-center gap-1 text-xs'>
@@ -27,7 +30,7 @@ const Minimal = () => {
             </div>
     </div>
 
-</div>
+</Link>
   )
 }
 

@@ -1,19 +1,30 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import Horizontal from '../cards/Horizontal'
+import Spinner from '../Spinner/Spinner';
 import Strip from '../strips/Strip';
 
 const Section = ({posts, title}) => {
+
+  const {  isFetching } = useSelector(state => state.posts)
+
   return (
-    <div className='bg-white p-3 lg:p-5 border-b-4 border-yellow-500'>
+    <div className=' p-3 lg:p-5  h-max'>
       {/* Map Posts Here */}
 
       <Strip text={title}/>
 
       <div className="my-4"></div>
 
-      <Horizontal/>
-      <Horizontal/>
-      <Horizontal/>
+      
+      {
+        posts?.map(post=>{
+          return <Horizontal key={post?._id} postData={post}/>
+        })
+      }
+
+      {isFetching && <Spinner/>}
+
 
     </div>
   )

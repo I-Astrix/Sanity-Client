@@ -1,15 +1,16 @@
 import React from 'react'
+import placeholder from '../../assets/images/placeholder.png';
 
 const Vertical = () => {
   return (
     <div className='flex flex-col h-max my-5'>
             
             <div className="image relative h-1/2">
-                <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='h-full w-full object-cover'/>
+                <img src={placeholder} alt="" className='h-full w-full object-cover'/>
                 <small className='absolute cursor-pointer left-5 bottom-5 px-4 py-1 backdrop-blur-sm text-white bg-white bg-opacity-30 rounded-full'>Tags</small>
             </div>
 
-            <div className="content col-start-3 col-end-6 flex flex-col gap-2 p-2 px-4">
+            <div className=" col-start-3 col-end-6 flex flex-col gap-2 p-2 px-4">
                     <div className="title">
                         <h3 className='text-lg font-bold'>Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
                     </div>
@@ -25,7 +26,7 @@ const Vertical = () => {
                         </svg>
                             125 Comments</small>
                     </div>
-                    <div className="content">
+                    <div className="">
                         <p className='text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa possimus natus voluptatum?</p>
                     </div>
             </div>

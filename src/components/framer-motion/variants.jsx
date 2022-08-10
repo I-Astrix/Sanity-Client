@@ -1,32 +1,28 @@
-export const dropIn = {
+export const containerVariant = {
     initial: {
-        y: 100,
-        opacity: 0
+        x: "50vw",
+        opacity: 0,
+        transition: {
+            ease: "easeInOut",
+            duration: 0.4
+        }
     },
     animate:{
-        y: 0,
+        x: 0,
         opacity: 1,
         transition: {
-            type: "spring",
-            stiffness: 80,
-            when: 'beforeChildren',
-            staggerChildren: 0.5
+            ease: "easeInOut",
+            duration: 0.4
+
         }
     }, 
     exit:{
-        y: 100,
+        x: '-50vw',
         opacity: 0,
-    }
-}
+        transition: {
+            ease: "easeInOut",
+            duration: 0.4
 
-export const childDrop = {
-    initial: {
-        y: -100
-    },
-    animate:{
-        y: 0
-    }, 
-    exit:{
-        y: -100
+        }
     }
 }

@@ -1,4 +1,5 @@
 import sanityClient from "@sanity/client";
+import imageUrlBuilder from '@sanity/image-url';
 
 
 const sanityCli =  sanityClient({
@@ -7,6 +8,13 @@ const sanityCli =  sanityClient({
   useCdn: true,
   apiVersion: '2021-10-21',
 });
+
+
+const builder = imageUrlBuilder(sanityCli)
+
+export function urlFor(source) {
+  return builder.image(source)
+}
 
 
 export default sanityCli;

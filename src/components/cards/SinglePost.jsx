@@ -1,14 +1,30 @@
+// Packages
 import React from 'react'
+import {PortableText} from '@portabletext/react';
+import { urlFor } from '../../Sanity/Sanity';
+import { useSelector } from 'react-redux/es/exports';
+// Components
 import Strip from '../strips/Strip';
 import Comment from './Comment';
+import Spinner from '../Spinner/Spinner';
+import potableTextComponents from '../../config/portableTextComponents';
 
-const SinglePost = () => {
+const SinglePost = ({postData}) => {
+
+    const { isFetching } = useSelector(state => state.posts);   
+
+
+
+      console.log(potableTextComponents);
+
   return (
     <div className='flex flex-col h-max bg-white'>
+
+            {isFetching && <Spinner/>}
             
             <div className="image relative h-80">
-                <img src="https://source.unsplash.com/ugnrXk1129g" alt="" className='h-full w-full object-cover'/>
-                <small className='absolute cursor-pointer left-5 bottom-5 px-4 py-1 backdrop-blur-sm text-white bg-white bg-opacity-30 rounded-full'>Tags</small>
+                {postData?.mainImage &&  <img src={urlFor(postData?.mainImage).width(800).quality(80).url()} alt="image" className='h-full w-full object-cover'/>}
+                <small className='absolute cursor-pointer left-4 bottom-4 px-3 py-1 text-xs backdrop-blur-sm text-white bg-black bg-opacity-30 rounded-full'>Tags</small>
             </div>
 
             
@@ -16,13 +32,14 @@ const SinglePost = () => {
             <div className="content col-start-3 col-end-6 flex flex-col gap-4 p-2 py-4 px-4">
 
             <div className="tags flex gap-2">
-                        <div className="tag py-0.5 px-2 inline-block bg-gray-200 text-xs text-gray-600">Javascript</div>
-                        <div className="tag py-0.5 px-2 inline-block bg-gray-200 text-xs text-gray-600">Javascript</div>
-                        <div className="tag py-0.5 px-2 inline-block bg-gray-200 text-xs text-gray-600">Javascript</div>
+                        {postData?.tags?.map(tag=>{
+                            return <div key={tag} className="tag py-0.5 px-2 inline-block bg-gray-200 text-xs text-gray-600">{tag}</div>
+                        })}
+                        
                     </div>
 
                     <div className="title">
-                        <h3 className='text-4xl font-extrabold'>Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
+                        <h3 className='text-4xl font-extrabold'>{postData?.title}</h3>
                     </div>
                     <div className="info text-gray-400 flex items-center gap-4">
                         <small className='flex items-center gap-1'>
@@ -37,8 +54,12 @@ const SinglePost = () => {
                             125 Comments</small>
                     </div>
                     <div className="content">
-                        <p className='text-lg leading-8 tracking-wide'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque amet minima natus nihil voluptatem. Quos est enim libero ipsam ducimus!</p>
+                        <PortableText value={postData?.body} components={potableTextComponents}/>
                     </div>
+
+
+      <div className="text-4xl text-center mt-5 font-bold p-4 border-b-2 border-yellow-500 border-dashed">That's It</div>
+
 
                     <div className="flex justify-between">
 
