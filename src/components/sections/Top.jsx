@@ -8,7 +8,7 @@ const Top = () => {
       
     <div className="grid grid-rows-4 grid-cols-7 gap-4 h-64 lg:h-96 lg:mt-2 mb-4 ">
 
-    <div className="row-span-4 lg:col-start-1 lg:col-end-5 border relative overflow-hidden group">
+    <div className="row-span-4 col-start-1 col-end-8 lg:col-start-1 lg:col-end-5 border relative overflow-hidden group">
     <img src={placeholder} alt="" className='w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease '/>
     <div className="data absolute left-0 bottom-0 w-full px-4 py-4 text-white bg-title to-gray-500">
     <div className="flex flex-col gap-2">
@@ -22,7 +22,7 @@ const Top = () => {
     </div>
     </div>
 
-    <div className="row-span-2 lg:col-start-5 lg:col-end-8 border relative overflow-hidden group">
+    <div className="row-span-2 hidden lg:block lg:col-start-5 lg:col-end-8 border relative overflow-hidden group">
     <img src={placeholder} alt="" className='w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease '/>
     <div className="data absolute left-0 bottom-0 w-full px-4 py-4 text-white bg-title to-gray-500">
     <div className="flex flex-col gap-2">
@@ -33,7 +33,7 @@ const Top = () => {
     </div>
     </div>
     
-    <div className="row-span-2 lg:col-start-5 lg:col-end-8 border relative overflow-hidden group">
+    <div className="row-span-2 hidden lg:block lg:col-start-5 lg:col-end-8 border relative overflow-hidden group">
     <img src={placeholder} alt="" className='w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease '/>
     <div className="data absolute left-0 bottom-0 w-full px-4 py-4 text-white bg-title to-gray-500">
     <div className="flex flex-col gap-2">

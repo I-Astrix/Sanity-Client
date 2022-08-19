@@ -1,11 +1,3 @@
-// export const getSingleById = ()=> `*[_type == "post" && _id == $key]`;
-
-// export const test = ()=> `*[_type == "post"]`
-
-// *[_type == "post" && _id == $key]
-
-// export const getSingleBySlug = `*[_type == "post" && _id == $key]`;
-
 export const getAllPosts = () => `*[_type == "post"][$start..$end]{
    ...,
    category->{
@@ -41,12 +33,19 @@ export const getSingleById = () => `*[_type == "post" && _id == $key][0]{
   category-> {title}
 }`;
 
+// Single Post By Slug
+export const getSingleBySlug = `*[_type == "post" && slug.current == $key][0]{
+  ...,
+  category-> {title}
+}`;
+
 // Returns a set amount of Post
 export const getByLimit = (limit) => `*[_type == "blog"][0...${limit}]`;
 
 // Sorts by Date
 export const sortBy = (type) =>
   `*[_type == "blog"] | order(_createdAt ${type})`;
+
 
 const query_browse = `*[_type == "post"][$start..$end]{
   _id,
@@ -56,4 +55,28 @@ const query_browse = `*[_type == "post"][$start..$end]{
     slug { current }
 }`;
 
-export { fetchCats, fetchPopular, query_mustRead, query_browse };
+const query_search = `*[_type == "post" && title match $query]{
+  ...,
+  category-> {title}
+}`;
+
+const query_posts_by_cat = `*[_type == "post" && category-> title match $query]{
+  category-> {title}
+  }`;
+
+const query_paginate = `*[_type == "article" && _id > $lastId] | order(_id) [0...100] {
+    _id, title, body
+}`;
+
+const query_fail = `*[_type == "cat"]`
+
+export {
+  query_fail,
+  fetchCats,
+  fetchPopular,
+  query_mustRead,
+  query_browse,
+  query_search,
+  query_posts_by_cat,
+  query_paginate
+};

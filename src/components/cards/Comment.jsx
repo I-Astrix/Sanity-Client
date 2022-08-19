@@ -12,10 +12,10 @@ const Comment = () => {
                 <img className='w-full h-full object-cover object-top' src="https://res.cloudinary.com/dse8haobk/image/upload/v1660102399/pexels-tu%E1%BA%A5n-ki%E1%BB%87t-jr-1382734_egjomh.jpg" alt="" />
             </div>            
 
-                <div className="leading-3 flex flex-col">
-                <small className='text-gray-600 text-lg'>Name</small>
+                <div className="flex flex-col">
+                <h5 className='text-gray-600 text-lg'>Name</h5>
                 <small className='text-gray-400'>December 4, 2017 at 3:12 pm</small>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, voluptatem.</p>
+                <p className='mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, voluptatem.</p>
                 
                 </div>
             </div>

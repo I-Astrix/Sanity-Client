@@ -20,6 +20,7 @@ body{
   max-width: 1140px;
   margin: auto;
   width: 100%;
+  contain: paint;
 }
 .poppins{
   font-family: 'Poppins', sans-serif;
@@ -78,7 +79,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007694",endCo
 /* 001845 */
 
 blockquote{
-  @apply border-l-4 px-2 border-yellow-500 text-lg font-normal leading-8 tracking-wide py-8 bg-gray-100 relative
+  font-size: 1rem;
+  line-height: calc(1.5 * 1.2);
+  @apply border border-l-8 px-4 border-yellow-500 font-normal tracking-wide py-4 bg-gray-200 relative
 }
 blockquote::after{
   content: "";
@@ -112,28 +115,14 @@ iframe{
   @apply w-full my-5
 }
 .content .note{
-  background: #6a994e;
-  border-color: #80b918;
-  @apply py-1 px-3 rounded-lg border-b-4 text-white  
+  background: #F1FDF9;
+  border-color: #00BF88;
+  @apply py-1 px-3 rounded-lg border-x-4 text-gray-600  
 }
 .content .note p{
   font-size: 1rem;
  @apply my-2
 }
-/* code{
-  @apply text-white relative z-10 w-full px-5 py-2
-}
-code::after{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: black;
-  left: 0;
-  top: 0;
-  @apply rounded-lg
-} */
 
 
 
@@ -163,4 +152,8 @@ code::after{
 
 .clip_circle{
   clip-path: circle(40%);
+}
+
+.hide-overflow{
+  overflow-x: hidden;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useState } from "react";
 
+
 // Components
 import Top from "../components/sections/Top";
 import Posts from "../components/sections/Posts";
@@ -16,6 +17,9 @@ import { getAllPosts } from "../Sanity/Queries";
 import { getData } from "../Api/requests/Posts";
 
 import { useDispatch, useSelector } from "react-redux";
+
+// For Testing remove before deploying
+import fetchClient from "../Hooks/fetchClient";
 
 const Home = () => {
   const { data } = useSelector((state) => state.posts);
@@ -40,10 +44,14 @@ const Home = () => {
     >
       <Top />
 
-      <div className="grid grid-cols-2 lg:grid-cols-6 gap-5 grid-flow-col my-5 relative">
+      <div className="grid grid-cols-2 lg:grid-cols-6 gap-5 grid-flow-col my-5 relative ">
         <div className=" col-start-1 col-end-7  lg:col-start-1 lg:col-end-5 ">
          
-          <Carousel />          
+          <Carousel />  
+
+          {/* Sends test requests to sanity's db */}
+          {/* <button onClick={()=> fetchClient(fetchCats)} className="w-full bg-yellow-500 text-white py-2 my-5">Fetch Test</button> */}
+
           <Ad />
 
           <div className="wrapper bg-white border-b-4 border-yellow-500 py-2 my-5">
@@ -59,12 +67,9 @@ const Home = () => {
 
           <Ad />
           
-
-      
-          
         </div>
 
-        <div className="col-start-1 col-end-7 lg:col-start-5 lg:col-end-7 h-max sticky top-0">
+        <div className="col-start-1 col-end-7 lg:col-start-5 lg:col-end-7 h-max sticky top-20">
           <Sidebar />
           <Cats />
           <Ad />

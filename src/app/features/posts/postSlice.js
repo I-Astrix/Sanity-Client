@@ -5,6 +5,8 @@ const postSlice = createSlice({
         initialState: {
             data: [],
             single: [],
+            lastId: '',
+            searched: [],
             isFetching: false,
             error: false
         },
@@ -27,9 +29,12 @@ const postSlice = createSlice({
             },
             clearSingle: (state)=>{
                 state.single = [];
+            },
+            setSearched: (state, action)=>{
+                state.searched = action.payload
             }
         }
 });
 
 export default postSlice.reducer;
-export const {fetchStart, fetchSuccess, fetchError, setSingle, clearSingle} = postSlice.actions;
+export const {fetchStart, fetchSuccess, fetchError, setSingle, clearSingle, setSearched} = postSlice.actions;

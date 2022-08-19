@@ -14,27 +14,25 @@ import Spinner from "../components/Spinner/Spinner";
 import { clearSingle } from "../app/features/posts/postSlice";
 // Api
 import { getSingle } from "../Api/requests/Posts";
-import { getSingleById } from "../Sanity/Queries";
+import { getSingleBySlug } from "../Sanity/Queries";
 import { containerVariant } from "../components/framer-motion/variants";
+import Carousel from "../components/sections/Carousel";
 
 // import { arrowLeft } from "../assets/icons/svg";
 
 const Single = () => {
   const location = useLocation();
   const navigate = useNavigate()
-  const { postId } = useParams();
+  const { slug } = useParams();
   const dispatch = useDispatch();
   const { single, isFetching } = useSelector((state) => state.posts);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    getSingle(getSingleById(), dispatch, postId);
-    // return () => {
-    //   dispatch(clearSingle());
-    // };
-  }, [postId]);
+    getSingle(getSingleBySlug, dispatch, slug);
+  }, [slug]);
 
-  // console.log(arrowLeft)
+  console.log(single?.body)
 
   return (
     <motion.div variants={containerVariant}
@@ -58,10 +56,14 @@ const Single = () => {
           {/* <SinglePost postData={single}/> */}
           {!isFetching && <SinglePost postData={single} />}
           <Ad />
-          <Posts title="Related" />
+
+          <div className="wrapper bg-white border-b-4 border-yellow-500 py-2 my-5">
+              <Posts title={"related"}/>      
+          </div>
+          
         </div>
 
-        <div className="col-start-5 col-end-7 h-max hidden lg:block relative">
+        <div className="col-start-5 col-end-7 h-max hidden lg:block sticky top-20">
           <Sidebar />
           <Cats title={"categories"}/>
         </div>
