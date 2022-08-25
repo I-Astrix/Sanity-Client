@@ -4,17 +4,20 @@ import { createSlice } from "@reduxjs/toolkit";
 const save = createSlice({
     name: "save",
     initialState: {
-        posts: [],
+        savedPosts: [],
     },
     reducers: {
         setPosts: (state, action)=>{
-            state.posts = state.posts.concat(action.payload)
+            state.savedPosts = state.savedPosts.concat(action.payload)
+        },
+        setState: (state, action)=>{
+            state.savedPosts = action.payload;
         },
         removePost: (state, action)=>{
-            state.posts = state.posts.filter(post=> post._id !== action.payload._id)
+            state.savedPosts = state.savedPosts.filter(post=> post._id !== action.payload._id)
         }
     }
 })
 
-export const { setPosts, removePost } = save.actions;
+export const { setPosts, removePost, setState } = save.actions;
 export default save.reducer;

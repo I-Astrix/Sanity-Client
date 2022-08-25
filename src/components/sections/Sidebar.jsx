@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Ad from '../cards/Ad'
 import Minimal from '../cards/Minimal'
-import Vertical from '../cards/Vertical'
 import Strip from '../strips/Strip'
 import Spinner from '../Spinner/Spinner';
 import { getMustRead } from '../../Api/requests/OtherPosts'

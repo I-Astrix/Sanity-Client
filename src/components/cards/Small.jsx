@@ -7,7 +7,7 @@ import { urlFor } from '../../Sanity/Sanity';
 const Small = ({postData}) => {
   return (
 
-    <div className='flex flex-col h-max mt-3 md:my-5'>
+    <div className='flex flex-col h-max  md:my-2'>
             
             <div className="image relative h-1/4">
                 <img src={urlFor(postData?.mainImage).width(300).url()} alt="postImage" className='h-32 w-full object-cover'/>

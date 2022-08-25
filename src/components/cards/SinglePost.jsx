@@ -9,18 +9,30 @@ import Comment from "./Comment";
 import Spinner from "../Spinner/Spinner";
 import potableTextComponents from "../../config/portableTextComponents";
 import {dateOption} from '../../config/dateOpt';
+import alert from "../../config/Alerts";
 
-import { addPost, remove } from "../../Api/requests/Bookmarks";
+import { addPost, remove, addToStorage, addToState} from "../../Api/requests/Bookmarks";
 import { useEffect } from "react";
 
 const SinglePost = ({ postData }) => {
   
   const { isFetching } = useSelector((state) => state.posts);
-  const { save } = useSelector(state=> state.save)
+  const { savedPosts } = useSelector(state=> state.save)
   const dispatch = useDispatch();
+
+  console.log(savedPosts);
+
+  useEffect(()=>{
+    addToStorage(savedPosts )
+  }, [savedPosts])
+
+  useEffect(()=>{
+    addToState(dispatch)
+  }, [])
 
   const handleSave = (post)=>{
     addPost(dispatch, post);
+    alert('Added to bookmarks');
   }
   
   return (
@@ -28,7 +40,7 @@ const SinglePost = ({ postData }) => {
       
       {isFetching && <Spinner />}
 
-      <div className="image relative h-80">
+      <div className="image relative h-60 lg:h-80">
         {postData?.mainImage && (
           <img
             src={urlFor(postData?.mainImage).width(800).quality(80).url()}
@@ -36,7 +48,7 @@ const SinglePost = ({ postData }) => {
             className="h-full w-full object-cover"
           />
         )}
-        <small className="absolute cursor-pointer left-4 bottom-4 px-3 py-1 text-xs backdrop-blur-sm text-white bg-black bg-opacity-30 rounded-full">
+        <small className="capitalize absolute cursor-pointer left-4 bottom-4 px-3 py-1 text-xs backdrop-blur-sm text-white bg-black bg-opacity-30 rounded-full">
           {postData?.category?.title}
         </small>
       </div>
@@ -45,7 +57,7 @@ const SinglePost = ({ postData }) => {
 
         <div className="tags flex gap-2 content justify-between items-center">
           
-          <div className="">
+          <div className="flex gap-2">
           {postData?.tags?.map((tag) => {
             return (
               <div
@@ -61,11 +73,11 @@ const SinglePost = ({ postData }) => {
          
          <div className="flex">
 
-         {save?.find(item=> item == postData) ?<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="#000" viewBox="0 0 24 24" stroke="#000 " strokeWidth={2}>
+         {savedPosts?.find(item=> item == postData) ? <svg onClick={()=> remove(dispatch, postData)} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="#C21010" viewBox="0 0 24 24" stroke="#C21010" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
             </svg>
             :
-          <svg onClick={()=> handleSave(postData)} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#000 " strokeWidth={2}>
+          <svg onClick={()=> handleSave(postData)} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#C21010 " strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
             </svg>}
                 

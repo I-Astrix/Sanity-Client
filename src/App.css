@@ -27,7 +27,8 @@ body{
 }
 
 .bg-title{
-    background: linear-gradient(45deg, rgba(73, 73, 73, 0.3), rgba(0, 0, 0, 0.291));
+    background: linear-gradient(45deg, rgba(28, 28, 28, 0.5), rgba(0, 0, 0, 0.291));
+    backdrop-filter: blur(5px);
 }
 
 /* Gradients */
@@ -138,7 +139,7 @@ iframe{
   content: "";
   position: absolute;
   bottom: 0;
-  height: 3px;
+  height: 2px;
   left: 50%;
   width: 0%;
   background: #facc15;
@@ -156,4 +157,51 @@ iframe{
 
 .hide-overflow{
   overflow-x: hidden;
+}
+
+/* Top Section */
+
+
+.top_image{
+  @apply w-full h-full object-cover object-top transition-all duration-1000
+}
+.top_container_absolute{
+  @apply absolute left-0 bottom-0 w-full px-4 py-4 text-white bg-title to-gray-500
+}
+
+.grid_child:hover .top_image{
+  @apply scale-105
+}
+
+.grid_child:nth-child(1){
+  @apply row-span-4 col-start-1 col-end-8 lg:col-start-1 lg:col-end-4 border relative overflow-hidden 
+}
+.grid_child:nth-child(1) .title h3{
+  font-size: 1.25rem;
+} 
+
+.grid_child:nth-child(2){
+  font-size: 0.5rem;
+  @apply hidden row-span-2 text-xs col-start-8 col-end-4 lg:block lg:col-start-4 lg:col-end-6 border relative overflow-hidden 
+}
+.grid_child .title h3{
+  font-size: 1rem;
+}
+
+.grid_child:nth-child(3){
+  @apply row-span-2 hidden lg:block lg:col-start-4 lg:col-end-6 border relative overflow-hidden 
+}
+
+.grid_child:nth-child(4){
+  @apply row-span-2 hidden lg:block lg:col-start-6 lg:col-end-8 border relative overflow-hidden 
+}
+
+.grid_child:nth-child(5){
+  @apply row-start-1 row-end-3 hidden lg:block lg:col-start-6 lg:col-end-8 border relative overflow-hidden 
+}
+
+@media (max-width: 100px){
+  .browse > .browse_child{
+    display: none;
+  }
 }

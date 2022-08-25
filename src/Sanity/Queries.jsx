@@ -7,6 +7,7 @@ export const getAllPosts = () => `*[_type == "post"][$start..$end]{
 
 const fetchCats = `*[_type == "category"]{
   title,
+  value,
   _id
 }`;
 
@@ -60,23 +61,34 @@ const query_search = `*[_type == "post" && title match $query]{
   category-> {title}
 }`;
 
-const query_posts_by_cat = `*[_type == "post" && category-> title match $query]{
-  category-> {title}
-  }`;
+// const query_posts_by_cat = `*[_type == "post" && category-> title match $query]{
+//   category-> {title}
+//   }`;
 
-const query_paginate = `*[_type == "article" && _id > $lastId] | order(_id) [0...100] {
-    _id, title, body
+
+const query_getInitialData = `*[_type == "post"] | order(_id) [0...4] {
+    ...,
+    category -> {title}
 }`;
 
-const query_fail = `*[_type == "cat"]`
+const query_getData = `*[_type == "post" && _id > $lastId] | order(_id) [0...4] {
+  ...,
+  category -> {title}
+}`;
+
+const query_postsByCat = `*[_type == "post" && category-> value match $filter && _id > $lastId]  | order(_id)[0..2]{
+  ...,
+  category -> {title}
+}`
+
 
 export {
-  query_fail,
   fetchCats,
   fetchPopular,
   query_mustRead,
   query_browse,
   query_search,
-  query_posts_by_cat,
-  query_paginate
+  query_postsByCat,
+  query_getData,
+  query_getInitialData,
 };

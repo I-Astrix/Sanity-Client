@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { getCats } from '../../Api/requests/Cats';
+import { fetchCats } from '../../Sanity/Queries';
 const Header = () => {
 
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
-  const catsList = JSON.parse(localStorage.getItem('cats'));  
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    getCats(dispatch, fetchCats)
+  }, [])
 
+  const { cats } = useSelector(state=> state.cats);
   
   
   return (
@@ -23,28 +29,29 @@ const Header = () => {
           HOME
         </Link>
 
-        <Link to="" className='py-5 px-3 navLink '>ARCHIVE</Link>
+        <Link to="" className='py-5 px-3 navLink '>NEWS</Link>
 
-        <Link to="" className=' navLink py-5 flex items-center gap-2 px-4 group'>
+        <button to="" className=' navLink py-5 flex items-center gap-2 px-4 group'>
           <p>
           CATEGORY
           </p>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+            <path fillRule="evenodd" d="M5.293 7.293a1   1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
-          <ul id="dropdown" className='transition-all ease duration-150 p-6 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto  grid left-0 absolute top-full bg-white border-yellow-500 border-2 text-black w-72 grid-cols-2 gap-2'>
-            {catsList?.map(cat=>{
+          <ul id="dropdown" className='transition-all ease duration-150 shadow-md p-6 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto  grid left-0 absolute top-full bg-white rounded-sm border-yellow-500 border-2 text-black w-72 grid-cols-2 gap-2'>
+            {cats?.map(cat=>{
               return (
-                <li key={cat._id} className='py-2 px-3 uppercase inline-block bg-gray-200 text-xs text-gray-600'>{cat.title}</li>
+                <Link to={`/posts/category/${cat?.value}`} key={cat._id} className='w-full py-2 px-3 uppercase inline-flex justify-center items-center bg-gray-200 text-xs text-gray-600 hover:bg-yellow-500 hover:text-white transition-all duration-300 ease rounded-sm'>{cat.title}</Link>
               )
             })}
 
                       
           </ul>
 
-        </Link>
+        </button>
 
-        <Link to="" className='py-5 px-3 navLink'>POST TYPES</Link>
+        {/* <Link to="" className='py-5 px-3 navLink'>RESOURCES</Link> */}
+        <Link to="" className='py-5 px-3 navLink'>LEARN</Link>
 
       </ul>
 

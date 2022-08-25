@@ -12,7 +12,7 @@ const Section = ({posts, title}) => {
     <div className=' p-3 lg:p-5  h-max'>
       {/* Map Posts Here */}
 
-      <Strip text={title}/>
+      {title && <Strip text={title}/>}
 
       <div className="my-4"></div>
 
@@ -23,7 +23,7 @@ const Section = ({posts, title}) => {
         })
       }
 
-      {isFetching && <Spinner/>}
+      {/* {isFetching && <Spinner/>} */}
 
 
     </div>
